@@ -9,8 +9,11 @@ public class TimingManager : MonoBehaviour
     [SerializeField] Transform center = null; // 판정 범위의 중심
     [SerializeField] RectTransform[] timingRect = null; // 다양한 판정 범위
     Vector2[] timingBoxs = null; // 판정 범위 최소값 x, 최대값 y
+
+    EffectManager theEffect;
     void Start()
     {
+        theEffect = FindObjectOfType<EffectManager>();
         timingBoxs = new Vector2[timingRect.Length];
 
         for (int i = 0; i < timingRect.Length; i++)
@@ -34,26 +37,28 @@ public class TimingManager : MonoBehaviour
                     boxNoteList[i].GetComponent<Note>().HideNote();
                     boxNoteList.RemoveAt(i);
 
-                    switch (j)
-                    {
-                        case 0:
-                            Debug.Log("Perfect");
-                            break;
-                        case 1:
-                            Debug.Log("Cool");
-                            break;
-                        case 2:
-                            Debug.Log("Good");
-                            break;
-                        case 3:
-                            Debug.Log("Bad");
-                            break;
-                    }
-                    return;
-                }
+                    //switch (j)
+                    //{
+                    //    case 0:
+                    //        Debug.Log("Perfect");
+                    //        break;
+                    //    case 1:
+                    //        Debug.Log("Cool");
+                    //        break;
+                    //    case 2:
+                    //        Debug.Log("Good");
+                    //        break;
+                    //    case 3:
+                    //        Debug.Log("Bad");
+                    //        break;
+                    //}
+                    //return;
+
+
+               }
             }
         }
 
-        Debug.Log("Miss");
+     //  Debug.Log("Miss");
     }
 }
