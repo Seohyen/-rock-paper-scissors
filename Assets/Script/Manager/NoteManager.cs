@@ -16,7 +16,7 @@ public class NoteManager : MonoBehaviour
     {
         theTimingManager = GetComponent<TimingManager>();
     }
-
+    
     void Update()
     {
         currentTime += Time.deltaTime;
@@ -24,24 +24,27 @@ public class NoteManager : MonoBehaviour
         if (currentTime >= 60d / bpm)
         {
             GameObject t_note = Instantiate(goNote, tfNoteAppear.position, Quaternion.identity);
-            t_note.transform.SetParent(this.transform);
-            t_note.transform.localScale = new Vector3(1f, 1f, 0f);
+           t_note.transform.SetParent(this.transform);
+         //   t_note.transform.localScale = new Vector3(1f, 1f, 0f);
 
-            theTimingManager.boxNoteList.Add(t_note);
+           // theTimingManager.boxNoteList.Add(t_note);
 
             currentTime -= 60d / bpm;  // currentTime = 0 으로 리셋해주면 안된다. 
-        }
-    }
 
-    private void OnTriggerExit2D(Collider2D collision)
+        }
+
+        Debug.Log(60d/bpm);
+    }
+    
+    private void OnTriggerExit2D(Collider2D collision)  
     {
-        if (collision.CompareTag("Note"))
+        if (collision.gameObject.tag == "Note")
         {
-            theTimingManager.boxNoteList.Remove(collision.gameObject);
+            // theTimingManager.boxNoteList.Remove(collision.gameObject); 
+
             Destroy(collision.gameObject);
         }
     }
-
 
 }
 
