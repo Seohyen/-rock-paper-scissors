@@ -10,12 +10,16 @@ public class PlayerController : MonoBehaviour
     {
         theTimingManager = FindObjectOfType<TimingManager>();
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+           
             theTimingManager.CheckTiming(); // 판정 체크
         }
     }
+
+    
+
 }
