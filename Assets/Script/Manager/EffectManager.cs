@@ -11,13 +11,13 @@ public class EffectManager : MonoBehaviour
     [SerializeField] Sprite[] judgementSprite = null;
      
     string hit = "Hit"; 
-
+     
     public void JufgementEffect(int pnum)
-    {
+    { 
         judgementImage.sprite = judgementSprite[pnum];
         judgementAnimator.SetTrigger(hit); 
     }
-
-
+    
+    
 
  }
